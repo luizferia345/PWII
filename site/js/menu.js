@@ -1,8 +1,10 @@
-var btnMenu = document.getElementById('btn-menu');
-var nav = document.getElementById('nav');
+const btnMenu = document.getElementById('btn-menu');
+const nav = document.getElementById('nav');
 
-btnMenu.addEventListener('click', function(){
-	
-	nav.classList.toggle('mostrar');
-});
-	
+if (btnMenu && nav) {
+	btnMenu.addEventListener('click', () => {
+		const estaAberto = nav.classList.toggle('aberto');
+		btnMenu.setAttribute('aria-expanded', estaAberto);
+		btnMenu.setAttribute('aria-label', estaAberto ? 'Fechar menu' : 'Abrir menu');
+	});
+}
